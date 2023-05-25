@@ -3,12 +3,14 @@ class Game {
         this._computerMove;
     }
 
+    // generate random move for computer
     getRandomMove = (movesList) => {
         this._computerMove =
             movesList[Math.floor(Math.random() * movesList.length)];
         return this._computerMove;
     };
 
+    // calculate current move result relatively to every option
     calculateMoveData = (move, movesList) => {
         const res = { win: [], lose: [] };
         for (let i = 0; i < movesList.length; i++) {
@@ -25,6 +27,7 @@ class Game {
         return res;
     };
 
+    // find result of current user move against computer move
     _getWinner = (userMoveData) => {
         if (userMoveData.lose.includes(this._computerMove)) {
             return 'lose';
@@ -35,6 +38,7 @@ class Game {
         }
     };
 
+    // collect result data of current round
     getGameResult = (move, movesList) => {
         const userMoveData = this.calculateMoveData(move, movesList);
         return {

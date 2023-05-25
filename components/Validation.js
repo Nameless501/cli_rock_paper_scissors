@@ -7,7 +7,7 @@ import {
 class Validation {
     constructor() {}
 
-    validateOptionsList = (movesList) => {
+    validateMovesList = (movesList) => {
         if (movesList.length < 3) {
             return ERROR_FEW_ARGUMENTS;
         }

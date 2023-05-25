@@ -10,17 +10,23 @@ class App {
     }) {
         this._movesList = movesList;
 
-        this._getComputerMove = getComputerMove;
+        this._getComputerMove =
+            getComputerMove; /* generate and return random move for computer */
 
-        this._encryptComputerMove = encryptComputerMove;
+        this._encryptComputerMove =
+            encryptComputerMove; /* create and render HMAC aan returns secret key */
 
-        this._getUserMove = getUserMove;
+        this._getUserMove =
+            getUserMove; /* render main menu and return user move */
 
-        this._getGameResult = getGameResult;
+        this._getGameResult =
+            getGameResult; /* calculate and render round result and secret key */
 
-        this._showHelpTable = showHelpTable;
+        this._showHelpTable =
+            showHelpTable; /* calculate and render info table for every option */
 
-        this._handleNextRoundMenu = handleNextRoundMenu;
+        this._handleNextRoundMenu =
+            handleNextRoundMenu; /* ask user for another round and return result */
 
         this._nextRound = false;
 

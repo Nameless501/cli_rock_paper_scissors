@@ -30,10 +30,13 @@ class Render {
 
     showMainMenu = (movesList) => {
         return readLine.question(this._createMainMenuOptions(movesList), {
-            limit: [...Array(movesList.length + 1).keys(), '?'],
+            limit: [
+                ...Array(movesList.length + 1).keys(),
+                '?',
+            ] /* array with available options for input validation */,
             limitMessage: chalk.bold.redBright(
                 `${ERROR_OPTION_NOT_FOUND}[$<limit>]`
-            ),
+            ) /* validation message for wrong input */,
         });
     };
 
@@ -48,12 +51,15 @@ class Render {
 
     showNextRoundMenu = () => {
         return readLine.question(this._createNextRoundMenuOptions(), {
-            limit: ['1', '2'],
+            limit: [
+                '1',
+                '2',
+            ] /* array with available options for input validation */,
             limitMessage: chalk.bold.redBright(
                 `${ERROR_OPTION_NOT_FOUND}[$<limit>]`
-            ),
-            trueValue: ['1'],
-            falseValue: ['2'],
+            ) /* validation message for wrong input */,
+            trueValue: ['1'] /* menu options that return truth */,
+            falseValue: ['2'] /* menu options that return false */,
         });
     };
 
