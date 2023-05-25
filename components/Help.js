@@ -23,9 +23,9 @@ class Help {
         const row = {};
         row[chalk.black.bold(title) + ' *'] = movesList.map((elem) => {
             if (moveData.win.includes(elem)) {
-                return chalk.bold.greenBright('Win');
-            } else if (moveData.lose.includes(elem)) {
                 return chalk.bold.redBright('Lose');
+            } else if (moveData.lose.includes(elem)) {
+                return chalk.bold.greenBright('Win');
             } else {
                 return chalk.bold.yellowBright('Draw');
             }
