@@ -1,0 +1,20 @@
+{
+    "name": "rsp",
+    "version": "1.0.0",
+    "description": "rock, paper, scissors game for cli",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "format": "prettier --write ."
+    },
+    "author": "Eugene Zorin (ezorin5@yandex.ru)",
+    "license": "ISC",
+    "devDependencies": {
+        "prettier": "2.8.8"
+    },
+    "dependencies": {
+        "chalk": "^5.2.0",
+        "cli-table3": "^0.6.3",
+        "readline-sync": "^1.4.10"
+    }
+}
