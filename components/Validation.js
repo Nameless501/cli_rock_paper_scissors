@@ -2,19 +2,19 @@ import {
     ERROR_EVEN_ARGUMENTS,
     ERROR_FEW_ARGUMENTS,
     ERROR_REPEATED_ARGUMENTS,
-} from '../utils/constants.js';
+} from '../configs/configs.js';
 
 class Validation {
     constructor() {}
 
-    validateMovesList = (movesList) => {
-        if (movesList.length < 3) {
+    validateOptionsList = (optionsList) => {
+        if (optionsList.length < 3) {
             return ERROR_FEW_ARGUMENTS;
         }
-        if (movesList.length % 2 === 0) {
+        if (optionsList.length % 2 === 0) {
             return ERROR_EVEN_ARGUMENTS;
         }
-        if (movesList.length > new Set(movesList).size) {
+        if (optionsList.length > new Set(optionsList).size) {
             return ERROR_REPEATED_ARGUMENTS;
         }
     };

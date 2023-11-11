@@ -4,24 +4,20 @@ import chalk from 'chalk';
 
 class Help {
     constructor(calculateMoveData) {
-        this._calculateMoveData =
-            calculateMoveData; /* calculate current move result relatively to every option */
+        this._calculateMoveData = calculateMoveData;
 
         this._table;
     }
 
-    _createTable = (movesList) => {
+    _createTable = (optionsList) => {
         this._table = new Table({
-            head: [
-                '',
-                ...movesList.map((el) => chalk.black.bold(el)),
-            ] /* table headers for every option column */,
+            head: ['', ...optionsList.map((el) => chalk.black.bold(el))],
         });
     };
 
-    _createRow = (title, moveData, movesList) => {
+    _createRow = (title, moveData, optionsList) => {
         const row = {};
-        row[chalk.black.bold(title) + ' *'] = movesList.map((elem) => {
+        row[chalk.black.bold(title) + ' *'] = optionsList.map((elem) => {
             if (moveData.win.includes(elem)) {
                 return chalk.bold.redBright('Lose');
             } else if (moveData.lose.includes(elem)) {
@@ -33,23 +29,19 @@ class Help {
         return row;
     };
 
-    _fillTable = (movesList) => {
+    _fillTable = (optionsList) => {
         this._table.push(
-            ...movesList.reduce((acc, title, ind, arr) => {
-                const moveData = this._calculateMoveData(ind, movesList);
-                const row = this._createRow(
-                    title,
-                    moveData,
-                    arr
-                ); /* create table row object for every option */
+            ...optionsList.reduce((acc, title, ind, arr) => {
+                const moveData = this._calculateMoveData(ind, optionsList);
+                const row = this._createRow(title, moveData, arr);
                 return [...acc, row];
             }, [])
         );
     };
 
-    showTable = (movesList) => {
-        this._createTable(movesList);
-        this._fillTable(movesList);
+    showTable = (optionsList) => {
+        this._createTable(optionsList);
+        this._fillTable(optionsList);
         console.log('\n' + this._table.toString());
     };
 }

@@ -1,11 +1,12 @@
 {
-    "name": "rsp",
+    "name": "rock_paper_scissors_CLI",
     "version": "1.0.0",
     "description": "rock, paper, scissors game for cli",
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "format": "prettier --write ."
+        "format": "prettier --write .",
+        "start": "node index.js"
     },
     "author": "Eugene Zorin (ezorin5@yandex.ru)",
     "license": "ISC",

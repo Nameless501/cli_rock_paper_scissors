@@ -3,31 +3,28 @@ class Game {
         this._computerMove;
     }
 
-    // generate random move for computer
-    getRandomMove = (movesList) => {
+    getRandomMove = (optionsList) => {
         this._computerMove =
-            movesList[Math.floor(Math.random() * movesList.length)];
+            optionsList[Math.floor(Math.random() * optionsList.length)];
         return this._computerMove;
     };
 
-    // calculate current move result relatively to every option
-    calculateMoveData = (move, movesList) => {
+    calculateMoveData = (move, optionsList) => {
         const res = { win: [], lose: [] };
-        for (let i = 0; i < movesList.length; i++) {
-            const half = (movesList.length - 1) / 2;
-            const opposition = (i + move) % movesList.length;
+        for (let i = 0; i < optionsList.length; i++) {
+            const half = (optionsList.length - 1) / 2;
+            const opposition = (i + move) % optionsList.length;
             if (!i) {
                 continue;
             } else if (i <= half) {
-                res.lose.push(movesList[opposition]);
+                res.lose.push(optionsList[opposition]);
             } else {
-                res.win.push(movesList[opposition]);
+                res.win.push(optionsList[opposition]);
             }
         }
         return res;
     };
 
-    // find result of current user move against computer move
     _getWinner = (userMoveData) => {
         if (userMoveData.lose.includes(this._computerMove)) {
             return 'lose';
@@ -38,11 +35,10 @@ class Game {
         }
     };
 
-    // collect result data of current round
-    getGameResult = (move, movesList) => {
-        const userMoveData = this.calculateMoveData(move, movesList);
+    getGameResult = (move, optionsList) => {
+        const userMoveData = this.calculateMoveData(move, optionsList);
         return {
-            user: movesList[move],
+            user: optionsList[move],
             computer: this._computerMove,
             result: this._getWinner(userMoveData),
         };
